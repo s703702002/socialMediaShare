@@ -1,0 +1,20 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "YE7Y23K7R9.com.gogoro.MobileApp",
+                "paths": [
+                    "*"
+                ]
+            },
+            {
+                "appID": "YE7Y23K7R9.com.gogoro.network",
+                "paths": [
+                    "*"
+                ]
+            }
+
+        ]
+    }
+}
