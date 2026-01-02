@@ -1,64 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="apple-itunes-app" content="app-id=id927757129" />
-    <meta property="og:title" content="這裡填寫超吸引人的標題" />
-    <meta property="og:description" content="這裡填寫簡短的內容摘要，吸引朋友點擊。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="apple-itunes-app" content="app-id=927757129" />
+    
+    <meta property="og:title" content="打開 Gogoro App" />
+    <meta property="og:description" content="點擊此處領取獎勵或查看資訊..." />
     <meta property="og:image" content="https://cdn.gogoro.com/resources/pages/home/banners/202403/img-home-jego-dx-global@2x.jpg?v=7" />
-    <meta property="og:url" content="https://www.gogoro.com/tw/" />
+    <meta property="og:url" content="https://s703702002.github.io/" />
     <meta property="og:type" content="website" />
-    <title>Gogoro!</title>
+    
+    <title>正在開啟 Gogoro App...</title>
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+        text-align: center;
+      }
+      .btn {
+        background-color: #000;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      p { color: #666; margin-bottom: 20px; }
+    </style>
   </head>
   <body>
+    
+    <h3>如果沒有自動開啟，請點擊下方按鈕</h3>
+    
+    <a id="appLink" href="https://app.gogoro.com" class="btn">開啟 Gogoro App</a>
+
     <script type="text/javascript">
-      var browser = {
-        versions: (function () {
-          var u = navigator.userAgent,
-            app = navigator.appVersion;
-          return {
-            mobile: !!u.match(/AppleWebKit.*Mobile.*/),
-            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
-            android: u.indexOf("Android") > -1 || u.indexOf("Adr") > -1,
-          };
-        })(),
-        language: (
-          navigator.browserLanguage || navigator.language
-        ).toLowerCase(),
+      // 嘗試自動跳轉
+      window.onload = function() {
+        var targetUrl = "https://app.gogoro.com";
+        
+        // 為了避免使用者按上一頁又馬上被轉走，可以做一點延遲或判斷
+        setTimeout(function() {
+             // 使用 replace 比較好，這樣按上一頁不會卡在死胡同
+             window.location.replace(targetUrl);
+        }, 500);
       };
-      if (window.location.pathname.includes("service")) {
-        switch (true) {
-          case window.location.search.includes("dev"):
-            window.location.replace(
-              "https://dev-sc.gogoro.com" + window.location.search
-            );
-            break;
-          case window.location.search.includes("pa"):
-            window.location.replace(
-              "https://pa-reserve.gogoro.com" + window.location.search
-            );
-            break;
-          default:
-            window.location.replace(
-              "https://reserve.gogoro.com" + window.location.search
-            );
-            break;
-        }
-      } else if (browser.versions.mobile) {
-        window.location.replace(
-          browser.versions.ios
-            ? "https://apps.apple.com/tw/app/gogoro-app/id927757129"
-            : "https://play.google.com/store/apps/details?id=com.gogoro.smartclient&hl=" +
-                browser.language
-        );
-      } else {
-        window.location.replace("https://www.gogoro.com/tw/");
-      }
     </script>
   </body>
 </html>
